@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aromaticroot Queen</title>
+  <link rel="icon" href="logo-1.png" type="image/png" />
+
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
+  <!-- GSAP for advanced animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #2e7d32;
+      --primary-dark: #1b5e20;
+      --primary-light: #81c784;
+      --text-dark: #333;
+      --text-light: #f8f9fa;
+      --bg-light: #fefefe;
+    }
+    
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      transition: all 0.5s ease;
+    }
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--primary-color);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+    .nav-link {
+      color: var(--text-dark);
+      font-weight: 500;
+      margin: 0 8px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Button */
+    .btn-shop {
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 25px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shop:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(46, 125, 50, 0.3);
+    }
+    .btn-shop:active {
+      transform: translateY(1px);
+    }
+    .btn-shop::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    .btn-shop:hover::before {
+      left: 100%;
+    }
+
+    .hero-section {
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+      z-index: -2;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      line-height: 1.2;
+    }
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+    }
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Headings */
+    .section-heading {
+      color: var(--primary-color);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+
+    /* About Section */
+    .about-img {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transform: perspective(1000px) rotateY(-10deg);
+      transition: transform 0.5s ease;
+    }
+    .about-img:hover {
+      transform: perspective(1000px) rotateY(0deg);
+    }
+    .about-content {
+      padding-left: 30px;
+    }
+    .about-text {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+      border-left: 3px solid var(--primary-light);
+    }
+
+    /* Values Section */
+    .value-card {
+      border-radius: 15px;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      background-color: #fff;
+      border: none;
+      overflow: hidden;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: -1;
+    }
+    .value-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 15px 30px rgba(46, 125, 50, 0.2);
+    }
+    .value-card:hover::before {
+      opacity: 1;
+    }
+    .value-card:hover .card-title,
+    .value-card:hover .card-text,
+    .value-card:hover .icon-wrapper img {
+      color: white;
+      filter: brightness(0) invert(1);
+    }
+    .icon-wrapper {
+      padding: 25px 0;
+      transition: all 0.5s ease;
+    }
+    .icon-wrapper img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      transition: all 0.5s ease;
+    }
+    .card-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      transition: color 0.5s ease;
+    }
+    .card-text {
+      font-size: 1rem;
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      transition: color 0.5s ease;
+    }
+
+    /* Services Section */
+    .service-card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      height: 100%;
+      position: relative;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(46, 125, 50, 0.2);
+    }
+    .service-card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .service-card:hover .service-card-img img {
+      transform: scale(1.1);
+    }
+    .service-card-body {
+      padding: 25px;
+      background-color: white;
+    }
+    .service-card-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    .service-card-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+    .service-card:hover .service-card-title::after {
+      width: 80px;
+    }
+    .service-card-text {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* Products Section */
+    .product-card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(46, 125, 50, 0.2);
+    }
+    .product-img {
+      height: 250px;
+      overflow: hidden;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .product-card:hover .product-img img {
+      transform: scale(1.1);
+    }
+    .product-body {
+      padding: 20px;
+      background-color: white;
+    }
+    .product-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .product-text {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    .product-features {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 15px;
+    }
+    .product-features li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 5px;
+      font-size: 0.85rem;
+    }
+    .product-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Benefits Section */
+    .benefits-container {
+      background-color: #f8f9fa;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    .benefits-title {
+      color: var(--primary-color);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    .benefits-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    .benefits-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .benefits-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+    }
+    .benefits-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    .form-control {
+      border-radius: 10px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      transition: all 0.3s ease;
+    }
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+    }
+
+.image-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.image-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.image-track img {
+  height: 150px;
+  margin: 0 25px;
+  object-fit: contain;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.image-track img:hover {
+  transform: scale(1.3); /* Enlarges image */
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Section Padding */
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+    .section-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.05;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <img src="logo-1.png" alt="Logo" width="30" height="30" class="me-2">
+    <a class="navbar-brand" href="#">Aromaticroot Queen</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#values">Values</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#benefits">Benefits</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+  <div class="hero-background" style="background-image: url('images/slider8.png');"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Welcome to Aromaticroot Queen</h1>
+    <p class="hero-subtitle">Experience the purity of herbal luxury with our premium vetiver products</p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-5 bg-light position-relative">
+  <div class="section-bg" style="background-image: url('images/about-bg.jpg');"></div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+        <div class="about-img">
+          <img src="images/global-export.png" alt="About Us" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <h2 class="mb-4 section-heading">About Aromaticroot Queen</h2>
+        <p class="about-text">
+          <strong>Aromaticroot Queen</strong> is a global brand crafting premium vetiver products rooted in tradition and purity. From essential oils to eco-products, our mission is built on sustainability and quality.
+        </p>
+        <p class="about-text">
+          With innovation at our core, we honor the legacy of vetiver while bringing fresh, eco-conscious solutions to life. Our products are carefully crafted to deliver the authentic essence of vetiver in every form.
+        </p>
+        <div class="d-flex align-items-center mt-4">
+          <a href="#services" class="btn btn-shop me-3">Our Services</a>
+          <a href="#contact" class="text-decoration-none d-flex align-items-center">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Core Values -->
+<section id="values" class="py-5 position-relative">
+  <div class="section-bg" style="background-image: url('images/values-bg.jpg');"></div>
+  <div class="container text-center">
+    <h3 class="mb-5 section-heading">Our Core Values</h3>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="value-card p-4 h-100">
+          <div class="icon-wrapper">
+            <img src="Images/icons/leaf.png" alt="Sustainability" class="floating">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Sustainability</h5>
+            <p class="card-text">Eco-friendly practices in every step of our production journey, ensuring minimal environmental impact.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="value-card p-4 h-100">
+          <div class="icon-wrapper">
+            <img src="Images/icons/quality.png" alt="Quality" class="floating">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Quality</h5>
+            <p class="card-text">We source only the best vetiver roots and oils, maintaining rigorous quality standards at every stage.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="value-card p-4 h-100">
+          <div class="icon-wrapper">
+            <img src="Images/icons/innovation.png" alt="Innovation" class="floating">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Innovation</h5>
+            <p class="card-text">Continuous research and development to bring ancient roots into modern applications with care.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="value-card p-4 h-100">
+          <div class="icon-wrapper">
+            <img src="Images/icons/social-justice.png" alt="Community" class="floating">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Community</h5>
+            <p class="card-text">We support rural farmers and empower local communities through fair trade and education.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="services" class="py-5 bg-light position-relative">
+  <div class="section-bg" style="background-image: url('images/services-bg.jpg');"></div>
+  <div class="container">
+    <h3 class="mb-5 section-heading text-center">Our Services</h3>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="service-card h-100">
+          <div class="service-card-img">
+            <img src="images/services/vetiver-cultivation.jpg" alt="Vetiver Cultivation">
+          </div>
+          <div class="service-card-body">
+            <h5 class="service-card-title">Vetiver Cultivation</h5>
+            <p class="service-card-text">
+              We grow vetiver using organic practices, ensuring soil health and top-quality roots while supporting sustainable agriculture. Our cultivation methods preserve biodiversity and prevent soil erosion.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card h-100">
+          <div class="service-card-img">
+            <img src="images/services/product-customization.png" alt="Product Customization">
+          </div>
+          <div class="service-card-body">
+            <h5 class="service-card-title">Product Customization</h5>
+            <p class="service-card-text">
+              Tailored vetiver products for skincare, wellness, and décor, created in collaboration with our clients' unique needs. From bespoke fragrances to specialized eco-products, we bring your vision to life.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card h-100">
+          <div class="service-card-img">
+            <img src="images/services/global-export.jpg" alt="Global Export">
+          </div>
+          <div class="service-card-body">
+            <h5 class="service-card-title">Global Export</h5>
+            <p class="service-card-text">
+              Delivering our vetiver goods worldwide with efficient logistics and care to ensure quality and freshness. We handle all export documentation and compliance requirements for seamless international trade.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="service-card h-100">
+          <div class="service-card-img">
+            <img src="images/services/wellness-products.jpg" alt="Vetiver Wellness Products">
+          </div>
+          <div class="service-card-body">
+            <h5 class="service-card-title">Wellness Products</h5>
+            <p class="service-card-text">
+              From essential oils to calm-inducing mats, our vetiver wellness products are crafted to soothe and refresh. Experience the therapeutic benefits of vetiver in our carefully formulated products.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card h-100">
+          <div class="service-card-img">
+            <img src="images/services/eco-products.png" alt="Eco-Friendly Vetiver Products">
+          </div>
+          <div class="service-card-body">
+            <h5 class="service-card-title">Eco-Friendly Products</h5>
+            <p class="service-card-text">
+              Natural vetiver mats, bags, and items that reduce environmental impact and bring elegance to homes and workspaces. Each product is biodegradable and sustainably sourced.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card h-100">
+          <div class="service-card-img">
+            <img src="images/services/consultation.png" alt="Consultation Services">
+          </div>
+          <div class="service-card-body">
+            <h5 class="service-card-title">Expert Consultation</h5>
+            <p class="service-card-text">
+              Get tailored advice on vetiver farming, eco practices, and product ideas directly from our experienced experts. We offer comprehensive guidance for both small-scale and commercial applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Products -->
+<section id="products" class="py-5 position-relative">
+  <div class="section-bg" style="background-image: url('images/products-bg.jpg');"></div>
+  <div class="container">
+    <h3 class="mb-5 section-heading text-center">Our Products</h3>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="product-card h-100">
+          <div class="product-img">
+            <img src="images/products/vetiver-oil.png" alt="Vetiver Essential Oil">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Vetiver Essential Oil</h5>
+            <p class="product-text">Our pure and organic vetiver essential oil is ideal for aromatherapy, calming inflammation, and skin hydration. Extracted from the roots of vetiver grass, it is 100% natural and free from additives.</p>
+            <ul class="product-features">
+              <li>Promotes relaxation and stress relief</li>
+              <li>Helps with skin rejuvenation</li>
+              <li>Perfect for diffusers and massages</li>
+            </ul>
+            <a href="#contact" class="btn btn-shop">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-card h-100">
+          <div class="product-img">
+            <img src="images/products/vetiver-roots.png" alt="Vetiver Roots">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Vetiver Roots</h5>
+            <p class="product-text">Fragrant and high-quality roots, perfect for environmental applications and traditional crafts. These roots are sustainably harvested and can be used for a variety of purposes.</p>
+            <ul class="product-features">
+              <li>Ideal for making natural perfumes</li>
+              <li>Used in sustainable construction and filtration systems</li>
+              <li>Great for DIY projects like creating decorative items</li>
+            </ul>
+            <a href="#contact" class="btn btn-shop">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-card h-100">
+          <div class="product-img">
+            <img src="images/products/vetiver-mats.png" alt="Vetiver Mats">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Vetiver Mats</h5>
+            <p class="product-text">Eco-friendly, insect-repelling mats that add a natural touch to your home. Made from tightly woven vetiver roots, these mats help cool the environment while providing a fresh aroma.</p>
+            <ul class="product-features">
+              <li>Natural insect-repellent properties</li>
+              <li>Helps reduce indoor humidity and cools the air</li>
+              <li>Perfect for homes, offices, and outdoor spaces</li>
+            </ul>
+            <a href="#contact" class="btn btn-shop">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="product-card h-100">
+          <div class="product-img">
+            <img src="images/products/vetiver-soap.jpg" alt="Vetiver Soap">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Vetiver Soap</h5>
+            <p class="product-text">Our handmade vetiver soap provides a luxurious and natural skincare experience. Infused with the calming fragrance of vetiver, this soap nourishes the skin while cleansing deeply.</p>
+            <ul class="product-features">
+              <li>Made with organic ingredients</li>
+              <li>Ideal for sensitive skin</li>
+              <li>Natural antibacterial properties</li>
+            </ul>
+            <a href="#contact" class="btn btn-shop">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-card h-100">
+          <div class="product-img">
+            <img src="images/products/vetiver-candles.png" alt="Vetiver Candles">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Vetiver Candles</h5>
+            <p class="product-text">Our vetiver-scented candles bring a calming and relaxing atmosphere to any room. Made from natural soy wax and infused with pure vetiver essential oil, these candles burn cleanly and evenly.</p>
+            <ul class="product-features">
+              <li>Long-lasting fragrance</li>
+              <li>Perfect for relaxation and meditation</li>
+              <li>Eco-friendly and biodegradable</li>
+            </ul>
+            <a href="#contact" class="btn btn-shop">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-card h-100">
+          <div class="product-img">
+            <img src="images/products/vetiver-bags.jpeg" alt="Vetiver Bags">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Vetiver Bags</h5>
+            <p class="product-text">Our handmade vetiver bags are designed to keep your clothes, bags, and other personal items fresh. The natural scent of vetiver helps repel insects and keeps your space smelling fresh.</p>
+            <ul class="product-features">
+              <li>Natural air fresheners for your wardrobe</li>
+              <li>Insect-repellent and hypoallergenic</li>
+              <li>Available in various sizes and designs</li>
+            </ul>
+            <a href="#contact" class="btn btn-shop">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits Section -->
+<section id="benefits" class="py-5 bg-light position-relative">
+  <div class="section-bg" style="background-image: url('images/benefits-bg.jpg');"></div>
+  <div class="container">
+    <h3 class="mb-5 section-heading text-center">Benefits of Vetiver</h3>
+    
+    <div class="row g-4">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="benefits-container h-100">
+          <h4 class="benefits-title">Skincare Benefits of Vetiver</h4>
+          <ul class="benefits-list">
+            <li>Hydrates and moisturizes skin, leaving it soft and supple</li>
+            <li>Balances skin's pH and evens skin tone, promoting a natural glow</li>
+            <li>Reduces inflammation, perfect for sensitive or irritated skin</li>
+            <li>Tightens pores, giving the skin a smoother, firmer appearance</li>
+            <li>Helps delay signs of aging by promoting skin regeneration</li>
+            <li>Fights acne with its antibacterial properties, helping clear the skin</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="benefits-container h-100">
+          <h4 class="benefits-title">Aromatherapy & Health Benefits</h4>
+          <ul class="benefits-list">
+            <li>Promotes relaxation and helps improve sleep quality</li>
+            <li>Reduces stress and anxiety, making it an excellent remedy for mental well-being</li>
+            <li>Has anti-inflammatory and antiseptic properties, promoting general health</li>
+            <li>Enhances libido and boosts overall well-being, acting as a natural aphrodisiac</li>
+            <li>Helps to improve circulation and detoxify the body</li>
+            <li>Strengthens immunity and supports a healthy nervous system</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mt-4">
+      <div class="col-12" data-aos="fade-up">
+        <div class="benefits-container">
+          <h4 class="benefits-title">Benefits of Vetiver Products</h4>
+          <div class="row">
+            <div class="col-md-4">
+              <h5 class="mt-3">Vetiver Essential Oil</h5>
+              <ul class="benefits-list">
+                <li>Reduces stress and calms the mind, promoting mental clarity</li>
+                <li>Relieves muscle tension and pain through soothing massages</li>
+                <li>Improves skin health by preventing dryness and rejuvenating the complexion</li>
+                <li>Acts as a natural remedy for respiratory issues when used in diffusers</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5 class="mt-3">Vetiver Soap</h5>
+              <ul class="benefits-list">
+                <li>Cleanses the skin without stripping its natural oils, leaving it hydrated</li>
+                <li>Has antimicrobial properties, helping prevent skin infections and breakouts</li>
+                <li>Calms sensitive skin and provides relief from skin conditions like eczema</li>
+                <li>Promotes an overall sense of relaxation with its rich, earthy scent</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5 class="mt-3">Vetiver Mats</h5>
+              <ul class="benefits-list">
+                <li>Natural insect-repellent properties, protecting your home from pests</li>
+                <li>Helps to cool down the room and maintain comfortable humidity levels</li>
+                <li>Provides a unique earthy fragrance that freshens up the space</li>
+                <li>Eco-friendly and sustainable alternative to synthetic materials</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clients Section -->
+<section id="clients" class="py-5 position-relative">
+  <div class="section-bg" style="background-image: url('images/clients-bg.jpg');"></div>
+  <div class="container">
+    <h3 class="mb-5 section-heading text-center">More Products</h3>
+
+    <div class="image-marquee">
+      <div class="image-track">
+        <img src="images/products/1.jpeg" alt="Product 1">
+        <img src="images/products/2.jpeg" alt="Product 2">
+        <img src="images/products/3.jpeg" alt="Product 3">
+        <img src="images/products/4.jpeg" alt="Product 4">
+        <img src="images/products/5.jpeg" alt="Product 5">
+        <img src="images/products/6.jpeg" alt="Product 6">
+        <img src="images/products/1.jpeg" alt="Product 1 Repeat">
+        <img src="images/products/2.jpeg" alt="Product 2 Repeat">
+        <img src="images/products/3.jpeg" alt="Product 3 Repeat">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-light position-relative">
+  <div class="section-bg" style="background-image: url('images/contact-bg.jpg');"></div>
+  <div class="container">
+    <h3 class="mb-5 section-heading text-center">Contact Us</h3>
+    <div class="row">
+      <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+        <div class="contact-info">
+          <h4 class="mb-4" style="color: var(--primary-color);">Get in Touch</h4>
+          <p class="mb-4">Have questions about our vetiver products or services? We'd love to hear from you!</p>
+          
+          <div class="d-flex align-items-start mb-3">
+            <i class="fas fa-map-marker-alt me-3 mt-1" style="color: var(--primary-color);"></i>
+  <div>
+  <h5 class="mb-1">Our Location</h5>
+  <p class="mb-0">
+    No. 1/15-1, Ellaipatti,<br>
+    Puduchatram,<br>
+    Dindigul – 624 619,<br>
+    Tamil Nadu, India
+  </p>
+</div>
+
+
+
+          </div>
+          
+        <div class="d-flex align-items-start mb-3">
+  <i class="fas fa-phone-alt me-3 mt-1" style="color: var(--primary-color);"></i>
+  <div>
+    <h5 class="mb-1">Call Us</h5>
+    <p class="mb-0">+91 98765 43210</p>
+    <p class="mb-0">+91 91234 56789</p>
+    <p class="mb-0">+91 99887 76655</p>
+  </div>
+</div>
+
+          
+        <div class="d-flex align-items-start mb-3">
+  <i class="fas fa-envelope me-3 mt-1" style="color: #2e7d32;"></i>
+  <div>
+    <h5 class="mb-1" style="color: #2e7d32;">Email Us</h5>
+    <p class="mb-0">
+      <a href="mailto:info@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
+        info@aromaticrootqueen.com
+      </a>
+    </p>
+    <p class="mb-0">
+      <a href="mailto:support@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
+        support@aromaticrootqueen.com
+      </a>
+    </p>
+    <p class="mb-0">
+      <a href="mailto:customercare@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
+        customercare@aromaticrootqueen.com
+      </a>
+    </p>
+  </div>
+</div>
+
+          
+          <div class="d-flex align-items-start">
+            <i class="fas fa-clock me-3 mt-1" style="color: var(--primary-color);"></i>
+            <div>
+              <h5 class="mb-1">Working Hours</h5>
+              <p class="mb-0">Monday - Friday: 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6" data-aos="fade-left">
+  <div class="contact-form">
+    <form action="sendmail.php" method="POST">
+      <div class="form-group">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Mobile Number">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of Your Message">
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-shop w-100">Send Message</button>
+    </form>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h4 class="mb-3">Aromaticroot Queen</h4>
+        <p>
+          Crafting premium vetiver products rooted in tradition and purity.
+          Experience the essence of nature with our sustainable solutions.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+        <h5 class="mb-3">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#about" class="text-white text-decoration-none">About</a></li>
+          <li><a href="#values" class="text-white text-decoration-none">Values</a></li>
+          <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="mb-3">Our Services</h5>
+        <ul class="list-unstyled">
+          <li>Vetiver Cultivation</li>
+          <li>Product Customization</li>
+          <li>Global Export</li>
+          <li>Wellness Products</li>
+          <li>Expert Consultation</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h5 class="mb-3">Our Location</h5>
+        <div class="rounded overflow-hidden" style="width: 100%; height: 180px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.3258966096478!2d77.78452407372534!3d10.47495458965613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9fb9d80c56b53%3A0x8e717e26ff46df6f!2sAROMATICROOT%20QUEEN%20FARMER%20PRODUCTS%20LLP!5e0!3m2!1sen!2sin!4v1753273446570!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+
+  <hr class="my-4 border-light">
+
+<!-- Footer Bottom -->
+<div class="row justify-content-between align-items-center text-center text-md-start">
+  <!-- Left Side: Copyright -->
+  <div class="col-md-6 mb-3 mb-md-0">
+    <p class="mb-0">&copy; 2024 Aromaticroot Queen. All rights reserved.</p>
+  </div>
+
+  <!-- Right Side: Social Media -->
+  <div class="col-md-6">
+    <div class="d-flex justify-content-md-end justify-content-center gap-5">
+      <a href="https://www.facebook.com/AromaticrootQueen" class="text-white fs-5" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/aromaticrootqueen/?hl=en" class="text-white fs-5" title="Instagram"><i class="fab fa-instagram"></i></a>
+ <a href="https://www.linkedin.com/company/aromaticroot-queen?trk=public_post_follow-view-profile" 
+        class="text-white fs-5" 
+       title="LinkedIn" 
+       target="_blank" 
+       rel="noopener">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+      <a href="mailto:info@aromaticrootqueen.com" class="text-white fs-5" title="Email"><i class="fas fa-envelope"></i></a>
+
+    </div>
+  </div>
+</div>
+
+  
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // GSAP Animations
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.hero-content', {
+    duration: 1.5,
+    y: 50,
+    opacity: 0,
+    ease: 'power3.out'
+  });
+
+  gsap.to('.hero-background', {
+    scrollTrigger: {
+      trigger: '.hero-section',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    },
+    y: 100,
+    ease: 'none'
+  });
+
+  gsap.utils.toArray('.value-card, .service-card, .product-card').forEach(card => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'back.out(1)'
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 70,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Hero slider
+  const heroImages = [
+    'images/slider4.jpeg',
+    'images/slider8.png',
+    'images/slider6.jpeg'
+    
+  ];
+  const heroTexts = [
+    { title: "Welcome to Aromaticroot Queen", subtitle: "Experience the purity of herbal luxury" },
+    { title: "Eco-Friendly & Sustainable", subtitle: "Vetiver products that support a green future" },
+    { title: "Premium Vetiver Products", subtitle: "Crafted with care, love, and purity" }
+  ];
+
+  let currentIndex = 0;
+  const heroBg = document.querySelector('.hero-background');
+  const heroContent = document.querySelector('.hero-content');
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+
+  function changeHeroBackground() {
+    currentIndex = (currentIndex + 1) % heroImages.length;
+    
+
+    gsap.to([heroBg, heroContent], {
+      duration: 0.5,
+      opacity: 0,
+      onComplete: function() {
+        heroBg.style.backgroundImage = `url(${heroImages[currentIndex]})`;
+        heroTitle.textContent = heroTexts[currentIndex].title;
+        heroSubtitle.textContent = heroTexts[currentIndex].subtitle;
+        
+        gsap.to([heroBg, heroContent], {
+          duration: 0.5,
+          opacity: 1
+        });
+      }
+    });
+  }
+
+  // Change every 4.5 seconds
+  setInterval(changeHeroBackground, 4500);
+</script>
+
+</body>
+</html> 
