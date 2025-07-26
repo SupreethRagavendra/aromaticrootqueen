@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Buy premium organic vetiver oil, roots & eco-products from Aromaticroot Queen. 100% pure, sustainable vetiver for aromatherapy & skincare.">
+  <meta property="og:title" content="Aromaticroot Queen | Premium Vetiver Products">
+<meta property="og:description" content="Explore handmade vetiver essential oils, eco-friendly mats, and wellness products.">
+<meta property="og:image" content="https://aromaticrootqueen.vercel.app/images/slider4.jpeg">
+
   <title>Aromaticroot Queen</title>
   <link rel="icon" href="logo-1.png" type="image/png" />
 
   <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -22,7 +26,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   
-    <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 
   <style>
     :root {
@@ -46,17 +50,20 @@
     /* Navbar */
     .navbar {
       transition: all 0.5s ease;
+      padding: 15px 0;
     }
     .navbar.scrolled {
-      background-color: rgba(255, 255, 255, 0.95) !important;
+      background-color: rgba(255, 255, 255, 0.98) !important;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
     }
     .navbar-brand {
       font-weight: bold;
-      color: var(--primary-color);
       font-family: 'Poppins', sans-serif;
       font-size: 1.5rem;
       transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
     }
     .navbar-brand:hover {
       transform: scale(1.05);
@@ -85,6 +92,155 @@
       width: 100%;
     }
 
+   /* Mobile Navigation */
+@media (max-width: 991.98px) {
+  .navbar {
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar.scrolled {
+    padding: 8px 15px;
+  }
+  
+  .navbar-collapse {
+    position: fixed;
+    top: 70px;
+    left: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+  }
+  
+  .navbar-collapse.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-link {
+    margin: 10px 0;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    display: block;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: var(--primary-color);
+    transform: translateX(5px);
+  }
+  
+  .nav-link.active {
+    background-color: rgba(46, 125, 50, 0.15);
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+  
+  .navbar-toggler {
+    padding: 0.5rem;
+    border: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: none;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-color);
+    display: block;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-color);
+    left: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-toggler-icon::before {
+    transform: translateY(-7px);
+  }
+  
+  .navbar-toggler-icon::after {
+    transform: translateY(7px);
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+  }
+  
+  /* Adjust hero section for mobile */
+  .hero-section {
+    min-height: 500px;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
+  
+  /* Ensure content isn't hidden behind navbar */
+  section {
+    scroll-margin-top: 70px;
+  }
+  
+  /* Mobile-specific adjustments */
+  .btn-shop {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+  }
+
+  .hero-background,
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+}
     /* Button */
     .btn-shop {
       background-color: var(--primary-color);
@@ -142,6 +298,7 @@
       background-position: center;
       will-change: transform;
       z-index: -2;
+      transition: opacity 1s ease;
     }
     .hero-overlay {
       position: absolute;
@@ -445,7 +602,7 @@
       line-height: 1;
     }
 
-    /* Contact Form */
+    /* Contact Section */
     .contact-form {
       background-color: white;
       border-radius: 15px;
@@ -464,42 +621,59 @@
       box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
     }
 
-.image-marquee {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
+    /* Map Container */
+    .contact-map-container {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+    .contact-map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+      border: none;
+    }
+    @media (max-width: 992px) {
+      .contact-map-container {
+        margin-top: 30px;
+        height: 400px;
+      }
+    }
 
-.image-track {
-  display: flex;
-  width: max-content;
-  animation: scroll-left 30s linear infinite;
-}
+ 
+    .image-marquee {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    .image-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 30s linear infinite;
+    }
+    .image-track img {
+      height: 150px;
+      margin: 0 25px;
+      object-fit: contain;
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+    }
+    .image-track img:hover {
+      transform: scale(1.3);
+      z-index: 2;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-.image-track img {
-  height: 150px;
-  margin: 0 25px;
-  object-fit: contain;
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
-}
+    @keyframes scroll-left {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
 
-.image-track img:hover {
-  transform: scale(1.3); /* Enlarges image */
-  z-index: 2;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Optional shadow */
-}
-
-
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-
+    /* Floating Animation */
     .floating {
       animation: floating 6s ease-in-out infinite;
     }
@@ -509,7 +683,6 @@
       100% { transform: translateY(0px); }
     }
 
-    /* Section Padding */
     section {
       padding: 80px 0;
       position: relative;
@@ -525,20 +698,140 @@
       opacity: 0.05;
       z-index: -1;
     }
+
+ 
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/footer-pattern.png') repeat;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    footer .container {
+      position: relative;
+      z-index: 1;
+    }
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .footer-links h5 {
+      color: var(--primary-light);
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer-links h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary-color);
+    }
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    .footer-map-container {
+      border-radius: 10px;
+      overflow: hidden;
+      height: 200px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .footer-map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .social-icons a:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      margin-top: 40px;
+    }
+    .footer-credits {
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* Animation for footer elements */
+    .footer-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .footer-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #colornav
+    {
+      color:var(--primary-color);
+
+    }
   </style>
 </head>
 <body>
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container">
     <img src="logo-1.png" alt="Logo" width="30" height="30" class="me-2">
-    <a class="navbar-brand" href="#">Aromaticroot Queen</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <a class="navbar-brand" id="colornav" href="#" >Aromaticroot Queen</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="#values">Values</a></li>
@@ -550,6 +843,7 @@
     </div>
   </div>
 </nav>
+
 
 <!-- Hero Section -->
 <section id="home" class="hero-section">
@@ -580,9 +874,6 @@
           With innovation at our core, we honor the legacy of vetiver while bringing fresh, eco-conscious solutions to life. Our products are carefully crafted to deliver the authentic essence of vetiver in every form.
         </p>
         <div class="d-flex align-items-center mt-4">
-          <a href="#services" class="btn btn-shop me-3">Our Services</a>
-          <a href="#contact" class="text-decoration-none d-flex align-items-center">
-          </a>
         </div>
       </div>
     </div>
@@ -643,7 +934,7 @@
   </div>
 </section>
 
-
+<!-- Services Section -->
 <section id="services" class="py-5 bg-light position-relative">
   <div class="section-bg" style="background-image: url('images/services-bg.jpg');"></div>
   <div class="container">
@@ -755,7 +1046,6 @@
               <li>Helps with skin rejuvenation</li>
               <li>Perfect for diffusers and massages</li>
             </ul>
-            <a href="#contact" class="btn btn-shop">Inquire Now</a>
           </div>
         </div>
       </div>
@@ -773,7 +1063,6 @@
               <li>Used in sustainable construction and filtration systems</li>
               <li>Great for DIY projects like creating decorative items</li>
             </ul>
-            <a href="#contact" class="btn btn-shop">Inquire Now</a>
           </div>
         </div>
       </div>
@@ -791,7 +1080,6 @@
               <li>Helps reduce indoor humidity and cools the air</li>
               <li>Perfect for homes, offices, and outdoor spaces</li>
             </ul>
-            <a href="#contact" class="btn btn-shop">Inquire Now</a>
           </div>
         </div>
       </div>
@@ -809,7 +1097,6 @@
               <li>Ideal for sensitive skin</li>
               <li>Natural antibacterial properties</li>
             </ul>
-            <a href="#contact" class="btn btn-shop">Inquire Now</a>
           </div>
         </div>
       </div>
@@ -827,7 +1114,6 @@
               <li>Perfect for relaxation and meditation</li>
               <li>Eco-friendly and biodegradable</li>
             </ul>
-            <a href="#contact" class="btn btn-shop">Inquire Now</a>
           </div>
         </div>
       </div>
@@ -845,7 +1131,6 @@
               <li>Insect-repellent and hypoallergenic</li>
               <li>Available in various sizes and designs</li>
             </ul>
-            <a href="#contact" class="btn btn-shop">Inquire Now</a>
           </div>
         </div>
       </div>
@@ -928,7 +1213,7 @@
   </div>
 </section>
 
-<!-- Clients Section -->
+<!--  more Products Section -->
 <section id="clients" class="py-5 position-relative">
   <div class="section-bg" style="background-image: url('images/clients-bg.jpg');"></div>
   <div class="container">
@@ -950,8 +1235,6 @@
   </div>
 </section>
 
-
-
 <!-- Contact Section -->
 <section id="contact" class="py-5 bg-light position-relative">
   <div class="section-bg" style="background-image: url('images/contact-bg.jpg');"></div>
@@ -965,53 +1248,48 @@
           
           <div class="d-flex align-items-start mb-3">
             <i class="fas fa-map-marker-alt me-3 mt-1" style="color: var(--primary-color);"></i>
-  <div>
-  <h5 class="mb-1">Our Location</h5>
-  <p class="mb-0">
-    No. 1/15-1, Ellaipatti,<br>
-    Puduchatram,<br>
-    Dindigul – 624 619,<br>
-    Tamil Nadu, India
-  </p>
-</div>
-
-
-
+            <div>
+              <h5 class="mb-1">Our Location</h5>
+              <p class="mb-0">
+                No. 1/15-1, Ellaipatti,<br>
+                Puduchatram,<br>
+                Dindigul – 624 619,<br>
+                Tamil Nadu, India
+              </p>
+            </div>
           </div>
           
-        <div class="d-flex align-items-start mb-3">
-  <i class="fas fa-phone-alt me-3 mt-1" style="color: var(--primary-color);"></i>
-  <div>
-    <h5 class="mb-1">Call Us</h5>
-    <p class="mb-0">+91 98765 43210</p>
-    <p class="mb-0">+91 91234 56789</p>
-    <p class="mb-0">+91 99887 76655</p>
-  </div>
-</div>
-
+          <div class="d-flex align-items-start mb-3">
+            <i class="fas fa-phone-alt me-3 mt-1" style="color: var(--primary-color);"></i>
+            <div>
+              <h5 class="mb-1">Call Us</h5>
+              <p class="mb-0">+91 98765 43210</p>
+              <p class="mb-0">+91 91234 56789</p>
+              <p class="mb-0">+91 99887 76655</p>
+            </div>
+          </div>
           
-        <div class="d-flex align-items-start mb-3">
-  <i class="fas fa-envelope me-3 mt-1" style="color: #2e7d32;"></i>
-  <div>
-    <h5 class="mb-1" style="color: #2e7d32;">Email Us</h5>
-    <p class="mb-0">
-      <a href="mailto:info@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
-        info@aromaticrootqueen.com
-      </a>
-    </p>
-    <p class="mb-0">
-      <a href="mailto:support@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
-        support@aromaticrootqueen.com
-      </a>
-    </p>
-    <p class="mb-0">
-      <a href="mailto:customercare@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
-        customercare@aromaticrootqueen.com
-      </a>
-    </p>
-  </div>
-</div>
-
+          <div class="d-flex align-items-start mb-3">
+            <i class="fas fa-envelope me-3 mt-1" style="color: var(--primary-color);"></i>
+            <div>
+              <h5 class="mb-1">Email Us</h5>
+              <p class="mb-0">
+                <a href="mailto:info@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
+                  info@aromaticrootqueen.com
+                </a>
+              </p>
+              <p class="mb-0">
+                <a href="mailto:support@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
+                  support@aromaticrootqueen.com
+                </a>
+              </p>
+              <p class="mb-0">
+                <a href="mailto:customercare@aromaticrootqueen.com" class="text-decoration-none" style="color: #333;">
+                  customercare@aromaticrootqueen.com
+                </a>
+              </p>
+            </div>
+          </div>
           
           <div class="d-flex align-items-start">
             <i class="fas fa-clock me-3 mt-1" style="color: var(--primary-color);"></i>
@@ -1024,137 +1302,142 @@
       </div>
       
       <div class="col-lg-6" data-aos="fade-left">
-  <div class="contact-form">
-    <form action="sendmail.php" method="POST">
-      <div class="form-group">
-        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+        <div class="contact-map-container h-100">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.3258966096478!2d77.78452407372534!3d10.47495458965613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9fb9d80c56b53%3A0x8e717e26ff46df6f!2sAROMATICROOT%20QUEEN%20FARMER%20PRODUCTS%20LLP!5e0!3m2!1sen!2sin!4v1753273446570!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="450" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
-      <div class="form-group">
-        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-lg-8 mx-auto" data-aos="fade-up">
+        <div class="contact-form">
+          <form action="https://mailer-q137.onrender.com/thankyou.html" method="POST">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Mobile Number">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of Your Message">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-shop w-100">Send Message</button>
+          </form>
+        </div>
       </div>
-      <div class="form-group">
-        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Mobile Number">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of Your Message">
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-shop w-100">Send Message</button>
-    </form>
-  </div>
-</div>
-
     </div>
   </div>
 </section>
 
+
+
+
 <!-- Footer -->
-<footer class="py-5 bg-dark text-white">
+<footer class="py-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 mb-4 mb-lg-0">
-        <h4 class="mb-3">Aromaticroot Queen</h4>
-        <p>
-          Crafting premium vetiver products rooted in tradition and purity.
-          Experience the essence of nature with our sustainable solutions.
+      <div class="col-lg-4 mb-5 mb-lg-0 footer-animate">
+        <a href="#" class="footer-logo d-flex align-items-center">
+          <img src="logo-1.png" alt="Logo" width="40" height="40" class="me-2">
+          Aromaticroot Queen
+        </a>
+        <p class="mt-3">
+          Crafting premium vetiver products rooted in tradition and purity. Experience the essence of nature with our sustainable solutions.
         </p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/AromaticrootQueen" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/aromaticrootqueen/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/aromaticroot-queen" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:info@aromaticrootqueen.com"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
 
-      <!-- Quick Links -->
-      <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-        <h5 class="mb-3">Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="#about" class="text-white text-decoration-none">About</a></li>
-          <li><a href="#values" class="text-white text-decoration-none">Values</a></li>
-          <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
-          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
-        </ul>
+      <div class="col-lg-2 col-md-6 mb-4 mb-md-0 footer-animate">
+        <div class="footer-links">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#values">Values</a></li>
+            <li><a href="#services">Services</a></li>
+             <li><a href="#products">Products</a></li>
+        
+          </ul>
+        </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="mb-3">Our Services</h5>
-        <ul class="list-unstyled">
-          <li>Vetiver Cultivation</li>
-          <li>Product Customization</li>
-          <li>Global Export</li>
-          <li>Wellness Products</li>
-          <li>Expert Consultation</li>
-        </ul>
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0 footer-animate">
+        <div class="footer-links">
+          <h5>Our Services</h5>
+          <ul>
+            <li>Vetiver Cultivation</li>
+            <li>Product Customization</li>
+            <li>Global Export</li>
+            <li>Wellness Products</li>
+            <li>Expert Consultation</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="col-lg-3 col-md-6">
-        <h5 class="mb-3">Our Location</h5>
-        <div class="rounded overflow-hidden" style="width: 100%; height: 180px;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.3258966096478!2d77.78452407372534!3d10.47495458965613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9fb9d80c56b53%3A0x8e717e26ff46df6f!2sAROMATICROOT%20QUEEN%20FARMER%20PRODUCTS%20LLP!5e0!3m2!1sen!2sin!4v1753273446570!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="col-lg-3 col-md-6 footer-animate">
+        <div class="footer-links">
+          <h5>Contact Info</h5>
+          <ul class="contact-info-list">
+            <li><i class="fas fa-map-marker-alt"></i> No. 1/15-1, Ellaipatti, Puduchatram</li>
+            <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
+            <li><i class="fas fa-envelope"></i> info@aromaticrootqueen.com</li>
+            <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</li>
+          </ul>
         </div>
       </div>
     </div>
 
-  <hr class="my-4 border-light">
-
-<!-- Footer Bottom -->
-<div class="row justify-content-between align-items-center text-center text-md-start">
-  <!-- Left Side: Copyright -->
-  <div class="col-md-6 mb-3 mb-md-0">
-    <p class="mb-0">&copy; 2024 Aromaticroot Queen. All rights reserved.</p>
-  </div>
-
-  <!-- Right Side: Social Media -->
-  <div class="col-md-6">
-    <div class="d-flex justify-content-md-end justify-content-center gap-5">
-      <a href="https://www.facebook.com/AromaticrootQueen" class="text-white fs-5" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/aromaticrootqueen/?hl=en" class="text-white fs-5" title="Instagram"><i class="fab fa-instagram"></i></a>
- <a href="https://www.linkedin.com/company/aromaticroot-queen?trk=public_post_follow-view-profile" 
-        class="text-white fs-5" 
-       title="LinkedIn" 
-       target="_blank" 
-       rel="noopener">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-      <a href="mailto:info@aromaticrootqueen.com" class="text-white fs-5" title="Email"><i class="fas fa-envelope"></i></a>
-
+    <div class="footer-bottom mt-5">
+      <div class="footer-credits">
+        &copy; 2024 Aromaticroot Queen. All rights reserved.
+      </div>
     </div>
   </div>
-</div>
-
-  
 </footer>
-
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 <script>
+  // AOS animation
   AOS.init({
     duration: 800,
     easing: 'ease-in-out',
     once: true
   });
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // GSAP Animations
+  
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.hero-content', {
-    duration: 1.5,
-    y: 50,
-    opacity: 0,
-    ease: 'power3.out'
-  });
-
+  
   gsap.to('.hero-background', {
     scrollTrigger: {
       trigger: '.hero-section',
@@ -1166,6 +1449,7 @@
     ease: 'none'
   });
 
+  // Card animations
   gsap.utils.toArray('.value-card, .service-card, .product-card').forEach(card => {
     gsap.from(card, {
       scrollTrigger: {
@@ -1177,6 +1461,95 @@
       opacity: 0,
       duration: 0.8,
       ease: 'back.out(1)'
+    });
+  });
+
+ 
+  const heroImages = [
+    'images/slider4.jpeg',
+    'images/slider8.png',
+    'images/slider6.jpeg'
+  ];
+  const heroTexts = [
+    { title: "Welcome to Aromaticroot Queen", subtitle: "Experience the purity of herbal luxury" },
+    { title: "Eco-Friendly & Sustainable", subtitle: "Vetiver products that support a green future" },
+    { title: "Premium Vetiver Products", subtitle: "Crafted with care, love, and purity" }
+  ];
+
+  let currentIndex = 0;
+  const heroBg = document.querySelector('.hero-background');
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  const heroContent = document.querySelector('.hero-content');
+  const heroSection = document.querySelector('.hero-section');
+
+  // Set initial slide immediately
+  heroBg.style.backgroundImage = `url(${heroImages[0]})`;
+  heroTitle.textContent = heroTexts[0].title;
+  heroSubtitle.textContent = heroTexts[0].subtitle;
+
+  // Fast GSAP intro after DOM ready
+  window.addEventListener('load', () => {
+    gsap.fromTo(heroContent, 
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" }
+    );
+  });
+
+  function changeHeroBackground() {
+    currentIndex = (currentIndex + 1) % heroImages.length;
+    
+    const tl = gsap.timeline();
+    tl.to(heroContent, {
+      duration: 0.3,
+      opacity: 0,
+      ease: "power1.out",
+      onComplete: () => {
+        heroBg.style.backgroundImage = `url(${heroImages[currentIndex]})`;
+        heroTitle.textContent = heroTexts[currentIndex].title;
+        heroSubtitle.textContent = heroTexts[currentIndex].subtitle;
+      }
+    });
+    tl.fromTo(heroContent,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "power1.out" }
+    );
+  }
+
+  // Start
+  let heroSliderInterval = setInterval(changeHeroBackground, 4000);
+
+  heroSection.addEventListener('mouseenter', () => clearInterval(heroSliderInterval));
+  heroSection.addEventListener('mouseleave', () => {
+    heroSliderInterval = setInterval(changeHeroBackground, 4500);
+  });
+
+
+  const footerElements = document.querySelectorAll('.footer-animate');
+  const footerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  footerElements.forEach(el => footerObserver.observe(el));
+
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= (sectionTop - 100)) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
     });
   });
 
@@ -1193,48 +1566,51 @@
     });
   });
 
-  // Hero slider
-  const heroImages = [
-    'images/slider4.jpeg',
-    'images/slider8.png',
-    'images/slider6.jpeg'
-    
-  ];
-  const heroTexts = [
-    { title: "Welcome to Aromaticroot Queen", subtitle: "Experience the purity of herbal luxury" },
-    { title: "Eco-Friendly & Sustainable", subtitle: "Vetiver products that support a green future" },
-    { title: "Premium Vetiver Products", subtitle: "Crafted with care, love, and purity" }
-  ];
+  // Mobile navbar close
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-  let currentIndex = 0;
-  const heroBg = document.querySelector('.hero-background');
-  const heroContent = document.querySelector('.hero-content');
-  const heroTitle = document.querySelector('.hero-title');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navbarCollapse.classList.contains('show')) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+          bsCollapse.hide();
+          document.body.style.overflow = '';
+        }
+      });
+    });
 
-  function changeHeroBackground() {
-    currentIndex = (currentIndex + 1) % heroImages.length;
-    
+    navbarToggler.addEventListener('click', function () {
+      document.body.style.overflow = (this.getAttribute('aria-expanded') === 'true') ? 'hidden' : '';
+    });
 
-    gsap.to([heroBg, heroContent], {
-      duration: 0.5,
-      opacity: 0,
-      onComplete: function() {
-        heroBg.style.backgroundImage = `url(${heroImages[currentIndex]})`;
-        heroTitle.textContent = heroTexts[currentIndex].title;
-        heroSubtitle.textContent = heroTexts[currentIndex].subtitle;
-        
-        gsap.to([heroBg, heroContent], {
-          duration: 0.5,
-          opacity: 1
-        });
+    document.addEventListener('click', function(e) {
+      if (!navbarToggler.contains(e.target) &&
+          !navbarCollapse.contains(e.target) &&
+          navbarCollapse.classList.contains('show')) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+        bsCollapse.hide();
+        document.body.style.overflow = '';
       }
     });
-  }
+  });
 
-  // Change every 4.5 seconds
-  setInterval(changeHeroBackground, 4500);
+  document.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("keydown", e => {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && (e.key === "u" || e.key === "U")) ||
+      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key.toUpperCase()))
+    ) {
+      e.preventDefault();
+    }
+  });
+
+
 </script>
 
+
 </body>
-</html> 
+</html>
